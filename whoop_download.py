@@ -277,7 +277,7 @@ class whoop_login:
             for dates in date_range:
                 start=dates[0]
                 end=dates[1]
-                ul='''https://api-7.whoop.com/users/24590/metrics/heart_rate?end={}&order=t&start={}&step=6'''.format(end,start)
+                ul='''https://api-7.whoop.com/users/{}/metrics/heart_rate?end={}&order=t&start={}&step=6'''.format(athlete_id,end,start)
                 hr_vals=self.pull_api(ul)['values']
                 hr_values=[[datetime.utcfromtimestamp(h['time']/1e3).date(),
                                   datetime.utcfromtimestamp(h['time']/1e3).time(),
@@ -552,7 +552,7 @@ class whoop_login:
                 for dates in date_range:
                     start=dates[0]
                     end=dates[1]
-                    ul='''https://api-7.whoop.com/users/24590/metrics/heart_rate?end={}&order=t&start={}&step=6'''.format(end,start)
+                    ul='''https://api-7.whoop.com/users/{}/metrics/heart_rate?end={}&order=t&start={}&step=6'''.format(athlete_id,end,start)
                     hr_vals=self.pull_api(ul)['values']
                     hr_values=[[datetime.utcfromtimestamp(h['time']/1e3).date(),
                                       datetime.utcfromtimestamp(h['time']/1e3).time(),
